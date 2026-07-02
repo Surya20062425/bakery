@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neha's — Cake Factory & Sweets | Palwancha</title>
-    <meta name="description" content="Artisan cakes and traditional sweets in Palwancha. Order online with cashless payment.">
+    <meta name="description" content="Artisan cakes, traditional Indian sweets, and daily bakes in Palwancha. Custom orders with online payment. Located inside More Supermarket — Palvoncha.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,17 +13,17 @@
 
     <style>
         :root {
-            --bg: #FDF8F3;
-            --bg-warm: #F7F0E8;
-            --text: #2B2D42;
-            --text-light: #6B6B6B;
-            --primary: #E07A5F;
-            --primary-dark: #C45A3F;
-            --secondary: #3D405B;
+            --bg: #FDF6E3;
+            --bg-warm: #F5ECD7;
+            --text: #3E2723;
+            --text-light: #6D4C41;
+            --primary: #D4853B;
+            --primary-dark: #B56D2E;
+            --secondary: #8FA68E;
             --white: #FFFFFF;
-            --border: rgba(43, 45, 66, 0.08);
-            --shadow: 0 4px 24px rgba(43, 45, 66, 0.06);
-            --shadow-lg: 0 12px 48px rgba(43, 45, 66, 0.12);
+            --border: rgba(62, 39, 35, 0.08);
+            --shadow: 0 4px 24px rgba(62, 39, 35, 0.06);
+            --shadow-lg: 0 12px 48px rgba(62, 39, 35, 0.12);
             
             --font-display: 'Playfair Display', Georgia, serif;
             --font-body: 'Inter', system-ui, sans-serif;
@@ -92,7 +92,7 @@
             background: var(--text);
             color: var(--white);
         }
-        .btn-dark:hover { background: var(--secondary); }
+        .btn-dark:hover { background: #5D4037; }
 
         .btn-outline {
             background: transparent;
@@ -108,7 +108,7 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 100;
-            background: rgba(253, 248, 243, 0.96);
+            background: rgba(253, 246, 227, 0.96);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
@@ -151,6 +151,21 @@
             cursor: pointer;
         }
 
+        /* Mobile Nav */
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 99;
+            padding: 6rem 2rem 2rem;
+            transform: translateX(100%);
+            transition: transform 0.4s ease;
+        }
+        .mobile-nav.open { transform: translateX(0); }
+        .mobile-nav ul { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+        .mobile-nav a { font-family: var(--font-display); font-size: 2rem; color: var(--text); }
+        .mobile-nav .btn { margin-top: 2rem; width: 100%; justify-content: center; }
+
         /* Hero */
         .hero {
             min-height: 100vh;
@@ -180,6 +195,29 @@
             opacity: 0.85;
         }
 
+        /* Daily Specials Ticker */
+        .ticker {
+            background: var(--text);
+            color: var(--bg);
+            padding: 0.75rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker-inner {
+            display: inline-block;
+            animation: ticker 20s linear infinite;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        .ticker-inner span { margin: 0 2rem; opacity: 0.8; }
+        .ticker-inner span::before { content: '•'; margin-right: 2rem; opacity: 0.5; }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
         /* Menu */
         .menu-section { background: var(--white); }
         .section-header { margin-bottom: 3rem; max-width: 560px; }
@@ -197,6 +235,7 @@
             border-radius: 6px;
             overflow: hidden;
             transition: all 0.3s ease;
+            position: relative;
         }
         .menu-card:hover {
             transform: translateY(-6px);
@@ -219,6 +258,20 @@
         }
         .menu-card:hover .menu-card-img img { transform: scale(1.05); }
 
+        .fresh-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 0.35rem 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+        }
+
         .menu-card-body { padding: 1.25rem; }
         .menu-card-body h3 { margin-bottom: 0.3rem; font-size: 1.25rem; }
         .menu-card-body p { font-size: 0.85rem; margin-bottom: 1rem; color: var(--text-light); }
@@ -233,7 +286,7 @@
         .menu-price { font-weight: 700; color: var(--text); font-size: 1rem; }
         .menu-price span { font-weight: 400; font-size: 0.8rem; color: var(--text-light); }
 
-        /* About */
+        /* About / Baker's Story */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -246,8 +299,25 @@
             background: var(--bg-warm);
             border-radius: 6px;
             overflow: hidden;
+            position: relative;
         }
         .about-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        .quote-overlay {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: 4px;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text);
+            box-shadow: var(--shadow);
+        }
+
         .about-content h2 { margin-bottom: 1rem; }
         .about-content p { margin-bottom: 1rem; font-size: 1rem; }
 
@@ -296,18 +366,18 @@
         }
         .footer-links a {
             font-size: 0.8rem;
-            color: rgba(253, 248, 243, 0.7);
+            color: rgba(253, 246, 227, 0.7);
             transition: color 0.2s;
         }
         .footer-links a:hover { color: var(--primary); }
 
         /* ============================================
-           MODAL SYSTEM
+           MODAL SYSTEM — BOOKING TO PAYMENT
            ============================================ */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(43, 45, 66, 0.6);
+            background: rgba(62, 39, 35, 0.6);
             backdrop-filter: blur(4px);
             z-index: 200;
             opacity: 0;
@@ -318,11 +388,7 @@
             justify-content: center;
             padding: 1rem;
         }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
 
         .modal {
             background: var(--white);
@@ -336,11 +402,7 @@
             transition: transform 0.3s ease;
             position: relative;
         }
-
-        .modal-overlay.active .modal {
-            transform: translateY(0);
-        }
-
+        .modal-overlay.active .modal { transform: translateY(0); }
         .modal-lg { max-width: 640px; }
 
         .modal-header {
@@ -350,20 +412,16 @@
             padding: 1.5rem;
             border-bottom: 1px solid var(--border);
         }
-
         .modal-header h3 {
             font-family: var(--font-body);
             font-size: 1.1rem;
             font-weight: 700;
             color: var(--text);
         }
-
         .modal-close {
-            width: 36px;
-            height: 36px;
+            width: 36px; height: 36px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center; justify-content: center;
             background: var(--bg);
             border: none;
             border-radius: 50%;
@@ -375,10 +433,7 @@
 
         .modal-body { padding: 1.5rem; }
 
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
+        .form-group { margin-bottom: 1.25rem; }
         .form-group label {
             display: block;
             font-size: 0.75rem;
@@ -388,7 +443,6 @@
             color: var(--text);
             margin-bottom: 0.4rem;
         }
-
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -403,18 +457,11 @@
             outline: none;
             transition: border-color 0.2s;
         }
-
         .form-group input:focus,
         .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary);
-        }
+        .form-group textarea:focus { border-color: var(--primary); }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
         .order-summary {
             background: var(--bg);
@@ -423,7 +470,6 @@
             padding: 1.25rem;
             margin-bottom: 1.5rem;
         }
-
         .summary-row {
             display: flex;
             justify-content: space-between;
@@ -446,7 +492,6 @@
             gap: 0.75rem;
             margin-bottom: 1.5rem;
         }
-
         .payment-option {
             display: flex;
             align-items: center;
@@ -458,22 +503,15 @@
             transition: all 0.2s;
             background: var(--bg);
         }
-
-        .payment-option:hover {
-            border-color: var(--primary);
-        }
-
+        .payment-option:hover { border-color: var(--primary); }
         .payment-option.selected {
             border-color: var(--primary);
-            background: rgba(224, 122, 95, 0.04);
+            background: rgba(212, 133, 59, 0.04);
         }
-
         .payment-option input[type="radio"] {
-            width: 18px;
-            height: 18px;
+            width: 18px; height: 18px;
             accent-color: var(--primary);
         }
-
         .payment-option label {
             display: flex;
             align-items: center;
@@ -483,7 +521,6 @@
             font-size: 0.9rem;
             flex: 1;
         }
-
         .payment-option i {
             font-size: 1.25rem;
             color: var(--primary);
@@ -492,55 +529,36 @@
         }
 
         /* Processing */
-        .processing {
-            text-align: center;
-            padding: 3rem 1rem;
-        }
-
+        .processing { text-align: center; padding: 3rem 1rem; }
         .spinner {
-            width: 48px;
-            height: 48px;
+            width: 48px; height: 48px;
             border: 3px solid var(--border);
             border-top-color: var(--primary);
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
             margin: 0 auto 1.5rem;
         }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         /* Success */
-        .success-screen {
-            text-align: center;
-            padding: 3rem 1.5rem;
-        }
-
+        .success-screen { text-align: center; padding: 3rem 1.5rem; }
         .success-icon {
-            width: 72px;
-            height: 72px;
-            background: rgba(224, 122, 95, 0.1);
+            width: 72px; height: 72px;
+            background: rgba(143, 166, 142, 0.15);
             border-radius: 50%;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center; justify-content: center;
             margin: 0 auto 1.5rem;
-            color: var(--primary);
+            color: var(--secondary);
             font-size: 2rem;
         }
-
-        .success-screen h2 {
-            margin-bottom: 0.5rem;
-        }
-
+        .success-screen h2 { margin-bottom: 0.5rem; }
         .success-screen p {
             margin-bottom: 2rem;
             max-width: 360px;
             margin-left: auto;
             margin-right: auto;
         }
-
         .order-id {
             display: inline-block;
             background: var(--bg);
@@ -555,7 +573,7 @@
             border: 1px solid var(--border);
         }
 
-        /* Mobile */
+        /* Responsive */
         @media (max-width: 900px) {
             .nav { display: none; }
             .mobile-toggle { display: flex; }
@@ -571,6 +589,7 @@
             .menu-grid { grid-template-columns: 1fr; }
             .hero-actions { flex-direction: column; }
             .hero-actions .btn { width: 100%; }
+            .ticker-inner { font-size: 0.75rem; }
             .modal { max-height: 95vh; }
         }
     </style>
@@ -585,7 +604,7 @@
                 <ul class="nav">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#menu">Menu</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#about">Our Story</a></li>
                     <li><a href="#visit">Visit</a></li>
                     <li><a href="#menu" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.75rem;">Order Now</a></li>
                 </ul>
@@ -595,45 +614,64 @@
     </header>
 
     <!-- Mobile Nav -->
-    <div class="mobile-nav" id="mobileNav" style="position: fixed; inset: 0; background: var(--bg); z-index: 99; padding: 6rem 2rem 2rem; transform: translateX(100%); transition: transform 0.4s ease;">
+    <div class="mobile-nav" id="mobileNav">
         <button onclick="toggleMenu()" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; color: var(--text); cursor: pointer;"><i class="fas fa-times"></i></button>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem;">
-            <li><a href="#home" onclick="toggleMenu()" style="font-family: var(--font-display); font-size: 2rem; color: var(--text);">Home</a></li>
-            <li><a href="#menu" onclick="toggleMenu()" style="font-family: var(--font-display); font-size: 2rem; color: var(--text);">Menu</a></li>
-            <li><a href="#about" onclick="toggleMenu()" style="font-family: var(--font-display); font-size: 2rem; color: var(--text);">About</a></li>
-            <li><a href="#visit" onclick="toggleMenu()" style="font-family: var(--font-display); font-size: 2rem; color: var(--text);">Visit</a></li>
+        <ul>
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#menu" onclick="toggleMenu()">Menu</a></li>
+            <li><a href="#about" onclick="toggleMenu()">Our Story</a></li>
+            <li><a href="#visit" onclick="toggleMenu()">Visit</a></li>
         </ul>
-        <a href="#menu" onclick="toggleMenu()" class="btn btn-primary" style="margin-top: 2rem; width: 100%;">Order Now</a>
+        <a href="#menu" onclick="toggleMenu()" class="btn btn-primary">Order Now</a>
     </div>
 
     <!-- Hero -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <span class="label">Palwancha, Telangana</span>
-            <h1>Baked Fresh. <em>Delivered Today.</em></h1>
-            <p>Custom cakes, traditional sweets, and daily bakes from our kitchen in Gandhi Nagar, KTPS. Order online and pay securely.</p>
+            <span class="label">Est. 2015 — Palwancha, Telangana</span>
+            <h1>Baked Fresh. <em>Made with Soul.</em></h1>
+            <p>Artisan cakes, traditional Indian sweets, and daily bakes from our kitchen inside More Supermarket — Palvoncha. No preservatives. No shortcuts.</p>
             <div class="hero-actions">
-                <a href="#menu" class="btn btn-primary">Browse Menu</a>
-                <a href="#visit" class="btn btn-outline">Find Our Store</a>
+                <a href="#menu" class="btn btn-primary">Order Online</a>
+                <a href="#visit" class="btn btn-outline">Visit Us</a>
             </div>
         </div>
         <div class="hero-visual">
-            <img src="https://placehold.co/800x900/F7F0E8/2B2D42?text=Artisan+Cake+Display" alt="Artisan cake">
+            <img src="https://placehold.co/800x900/F5ECD7/3E2723?text=Fresh+Bakes+Display" alt="Fresh baked goods">
         </div>
     </section>
+
+    <!-- Daily Specials Ticker -->
+    <div class="ticker">
+        <div class="ticker-inner">
+            <span>Today's Fresh: Black Forest Cake</span>
+            <span>Kaju Katli</span>
+            <span>Butterscotch Delight</span>
+            <span>Gulab Jamun</span>
+            <span>Fresh Milk Bread</span>
+            <span>Red Velvet Cupcakes</span>
+            <span>Today's Fresh: Black Forest Cake</span>
+            <span>Kaju Katli</span>
+            <span>Butterscotch Delight</span>
+            <span>Gulab Jamun</span>
+            <span>Fresh Milk Bread</span>
+            <span>Red Velvet Cupcakes</span>
+        </div>
+    </div>
 
     <!-- Menu -->
     <section class="section menu-section" id="menu">
         <div class="container">
             <div class="section-header">
-                <span class="label">The Menu</span>
-                <h2>Order Online</h2>
-                <p>Click "Book" on any item to place an order. We accept UPI, cards, and cash on delivery.</p>
+                <span class="label">The Collection</span>
+                <h2>Fresh from the Oven</h2>
+                <p>Everything is made to order using pure ingredients. Click "Book" to order online with secure payment.</p>
             </div>
             <div class="menu-grid">
                 <div class="menu-card">
                     <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/E07A5F/FFFFFF?text=Black+Forest" alt="Black Forest">
+                        <span class="fresh-badge">Fresh Baked</span>
+                        <img src="https://placehold.co/600x400/D4853B/FFFFFF?text=Black+Forest" alt="Black Forest Cake">
                     </div>
                     <div class="menu-card-body">
                         <h3>Black Forest Cake</h3>
@@ -646,7 +684,8 @@
                 </div>
                 <div class="menu-card">
                     <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/D4A373/FFFFFF?text=Butterscotch" alt="Butterscotch">
+                        <span class="fresh-badge">Fresh Baked</span>
+                        <img src="https://placehold.co/600x400/E8DCC4/3E2723?text=Butterscotch" alt="Butterscotch Cake">
                     </div>
                     <div class="menu-card-body">
                         <h3>Butterscotch Delight</h3>
@@ -659,7 +698,7 @@
                 </div>
                 <div class="menu-card">
                     <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/81B29A/FFFFFF?text=Pineapple" alt="Pineapple">
+                        <img src="https://placehold.co/600x400/8FA68E/FFFFFF?text=Pineapple" alt="Pineapple Cake">
                     </div>
                     <div class="menu-card-body">
                         <h3>Pineapple Cream</h3>
@@ -672,7 +711,7 @@
                 </div>
                 <div class="menu-card">
                     <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/C27BA0/FFFFFF?text=Red+Velvet" alt="Red Velvet">
+                        <img src="https://placehold.co/600x400/C27BA0/FFFFFF?text=Red+Velvet" alt="Red Velvet Cupcakes">
                     </div>
                     <div class="menu-card-body">
                         <h3>Red Velvet Cupcakes</h3>
@@ -685,7 +724,8 @@
                 </div>
                 <div class="menu-card">
                     <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/3D405B/FFFFFF?text=Kaju+Katli" alt="Kaju Katli">
+                        <span class="fresh-badge">Daily</span>
+                        <img src="https://placehold.co/600x400/3E2723/FFFFFF?text=Kaju+Katli" alt="Kaju Katli">
                     </div>
                     <div class="menu-card-body">
                         <h3>Kaju Katli</h3>
@@ -698,7 +738,8 @@
                 </div>
                 <div class="menu-card">
                     <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/E07A5F/FFFFFF?text=Gulab+Jamun" alt="Gulab Jamun">
+                        <span class="fresh-badge">Daily</span>
+                        <img src="https://placehold.co/600x400/D4853B/FFFFFF?text=Gulab+Jamun" alt="Gulab Jamun">
                     </div>
                     <div class="menu-card-body">
                         <h3>Gulab Jamun</h3>
@@ -713,18 +754,20 @@
         </div>
     </section>
 
-    <!-- About -->
+    <!-- About / Baker's Story -->
     <section class="section" id="about">
         <div class="container about-grid">
             <div class="about-img">
-                <img src="https://placehold.co/600x700/F7F0E8/2B2D42?text=Our+Kitchen" alt="Kitchen">
+                <img src="https://placehold.co/600x700/F5ECD7/3E2723?text=Neha's+Kitchen" alt="Neha's kitchen">
+                <div class="quote-overlay">"Every cake tells a story — let us bake yours."</div>
             </div>
             <div class="about-content">
-                <span class="label">About</span>
-                <h2>Made in Palwancha</h2>
-                <p>We are located inside <strong>More Supermarket — Palvoncha</strong>, serving Gandhi Nagar, KTPS, and surrounding areas since 2015.</p>
-                <p>Every cake is baked to order. Every sweet follows a family recipe. Real butter, fresh cream, and no preservatives.</p>
-                <a href="#visit" class="btn btn-outline">Visit Us</a>
+                <span class="label">Our Story</span>
+                <h2>From Our Kitchen to Your Home</h2>
+                <p>We are located inside <strong>More Supermarket — Palvoncha</strong>, serving Gandhi Nagar, KTPS, and all of Palwancha since 2015.</p>
+                <p>Every morning, we bake in small batches. Real butter. Fresh cream. Premium dry fruits. No preservatives, no premixes, no shortcuts. Whether it is a last-minute loaf of bread or a three-tier wedding cake, we treat it with the same care.</p>
+                <p>Our sweets follow family recipes — the kind of Mysore Pak and Kaju Katli that taste like they came from a home kitchen, because they essentially did.</p>
+                <a href="#visit" class="btn btn-outline">Find Our Store</a>
             </div>
         </div>
     </section>
@@ -733,9 +776,9 @@
     <section class="section" id="visit">
         <div class="container visit-grid">
             <div class="visit-info">
-                <span class="label">Contact</span>
-                <h2>Visit or Call</h2>
-                <p>We are easy to find inside More Supermarket. For large orders, call ahead.</p>
+                <span class="label">Visit</span>
+                <h2>Come By or Call Ahead</h2>
+                <p>We are easy to find inside More Supermarket. If you are placing a large order, a quick call helps us prepare.</p>
                 
                 <h3>Address</h3>
                 <p>Road, Gandhi Nagar, KTPS<br>Palwancha, Telangana 507115<br><small>Inside More Supermarket — Palvoncha</small></p>
@@ -745,6 +788,9 @@
                 
                 <h3>Hours</h3>
                 <p>Monday — Sunday<br>8:00 AM to 10:00 PM</p>
+                
+                <h3>WhatsApp</h3>
+                <p><a href="https://wa.me/919959491828" target="_blank">+91 99594 91828</a> — for quick inquiries</p>
             </div>
             <div class="visit-map">
                 <p>Google Maps Embed</p>
@@ -758,7 +804,7 @@
             <div class="footer-logo">Neha's Cake Factory</div>
             <ul class="footer-links">
                 <li><a href="#menu">Menu</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">Our Story</a></li>
                 <li><a href="#visit">Visit</a></li>
             </ul>
         </div>
@@ -827,7 +873,7 @@
                     </div>
                     <div class="form-group">
                         <label for="notes">Notes (Optional)</label>
-                        <textarea id="notes" rows="2" placeholder="Message on cake, eggless, etc."></textarea>
+                        <textarea id="notes" rows="2" placeholder="Message on cake, eggless preference, etc."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-full">Proceed to Payment</button>
                 </form>
@@ -893,7 +939,7 @@
     </div>
 
     <!-- ============================================
-         SUCCESS MODAL
+         SUCCESS MODAL — ORDER PLACED
          ============================================ -->
     <div class="modal-overlay" id="successModal">
         <div class="modal" style="max-width: 440px;">
@@ -928,7 +974,6 @@
                 document.getElementById(id).classList.remove('active');
             });
             document.body.style.overflow = '';
-            // Reset form
             document.getElementById('bookingForm').reset();
             document.getElementById('bookQty').value = 1;
         }
@@ -988,14 +1033,11 @@
             closeModal('paymentModal');
             openModal('processingModal');
 
-            // Simulate processing time
             setTimeout(() => {
                 closeModal('processingModal');
                 const orderId = 'NCF-' + Math.floor(1000 + Math.random() * 9000);
                 document.getElementById('orderIdDisplay').textContent = 'ORDER #' + orderId;
                 openModal('successModal');
-
-                // Also send data to WhatsApp for business records
                 sendWhatsAppConfirmation(method, orderId);
             }, 2000);
         }
@@ -1003,16 +1045,15 @@
         function sendWhatsAppConfirmation(method, orderId) {
             const text = `New Order Received!%0A%0AOrder ID: ${orderId}%0AItem: ${orderState.item}%0AQty: ${orderState.qty}%0ATotal: ₹${orderState.total}%0A%0ACustomer: ${orderState.name}%0APhone: ${orderState.phone}%0AAddress: ${orderState.address}%0ADate: ${orderState.date}, ${orderState.time}%0ANotes: ${orderState.notes || 'None'}%0APayment: ${method.toUpperCase()}`;
             
-            // Open WhatsApp with order details in background
             window.open(`https://wa.me/919959491828?text=${text}`, '_blank');
         }
 
         function toggleMenu() {
             const nav = document.getElementById('mobileNav');
-            nav.style.transform = nav.style.transform === 'translateX(0%)' ? 'translateX(100%)' : 'translateX(0%)';
+            nav.classList.toggle('open');
+            document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
         }
 
-        // Set minimum date to today
         document.getElementById('deliveryDate').min = new Date().toISOString().split('T')[0];
     </script>
 </body>
