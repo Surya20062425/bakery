@@ -4,78 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neha's — Cake Factory & Sweets | Palwancha</title>
-    <meta name="description" content="Artisan cakes and traditional sweets in Palwancha. Custom orders, daily bakes, and festival hampers.">
+    <meta name="description" content="Artisan cakes and traditional sweets in Palwancha. Order online with cashless payment.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         :root {
-            --forest: #1B3A2F;
-            --forest-light: #2D5A4A;
-            --ivory: #FAF7F2;
-            --ivory-dark: #F0EBE3;
-            --copper: #B87333;
-            --copper-light: #D4A574;
-            --charcoal: #1A1A1A;
-            --stone: #6B6B6B;
+            --bg: #FDF8F3;
+            --bg-warm: #F7F0E8;
+            --text: #2B2D42;
+            --text-light: #6B6B6B;
+            --primary: #E07A5F;
+            --primary-dark: #C45A3F;
+            --secondary: #3D405B;
             --white: #FFFFFF;
-            --border: rgba(27, 58, 47, 0.1);
+            --border: rgba(43, 45, 66, 0.08);
+            --shadow: 0 4px 24px rgba(43, 45, 66, 0.06);
+            --shadow-lg: 0 12px 48px rgba(43, 45, 66, 0.12);
             
-            --font-display: 'Cormorant Garamond', Georgia, serif;
-            --font-body: 'DM Sans', system-ui, sans-serif;
-            
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 2rem;
-            --space-lg: 4rem;
-            --space-xl: 6rem;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
+        html { scroll-behavior: smooth; font-size: 16px; }
 
         body {
             font-family: var(--font-body);
-            background: var(--ivory);
-            color: var(--charcoal);
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
         img { max-width: 100%; display: block; height: auto; }
 
-        a { text-decoration: none; color: inherit; }
-
         /* Typography */
-        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; color: var(--forest); }
-        h1 { font-size: clamp(3rem, 6vw, 5.5rem); letter-spacing: -0.02em; }
-        h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
-        h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
-        p { color: var(--stone); line-height: 1.7; }
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; color: var(--text); }
+        h1 { font-size: clamp(2.8rem, 5.5vw, 4.8rem); letter-spacing: -0.02em; }
+        h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+        h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
+        p { color: var(--text-light); line-height: 1.7; }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .container { width: 90%; max-width: 1160px; margin: 0 auto; }
 
-        .section { padding: var(--space-xl) 0; }
+        .section { padding: 6rem 0; }
 
         .label {
             font-family: var(--font-body);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--copper);
-            margin-bottom: var(--space-sm);
+            color: var(--primary);
+            margin-bottom: 1rem;
             display: block;
         }
 
@@ -83,44 +69,47 @@
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
-            padding: 1rem 2.25rem;
+            padding: 0.9rem 2rem;
             font-family: var(--font-body);
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
+            border-radius: 4px;
         }
 
         .btn-primary {
-            background: var(--forest);
+            background: var(--primary);
             color: var(--white);
         }
-        .btn-primary:hover { background: var(--forest-light); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
 
-        .btn-accent {
-            background: var(--copper);
+        .btn-dark {
+            background: var(--text);
             color: var(--white);
         }
-        .btn-accent:hover { background: #9A5F2A; }
+        .btn-dark:hover { background: var(--secondary); }
 
         .btn-outline {
             background: transparent;
-            color: var(--forest);
-            border: 1.5px solid var(--forest);
+            color: var(--text);
+            border: 1.5px solid var(--border);
         }
-        .btn-outline:hover { background: var(--forest); color: var(--white); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+        .btn-full { width: 100%; }
 
         /* Header */
         .header {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 100;
-            background: rgba(250, 247, 242, 0.95);
-            backdrop-filter: blur(8px);
+            background: rgba(253, 248, 243, 0.96);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
 
@@ -128,65 +117,39 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 80px;
+            height: 76px;
         }
 
         .logo {
             font-family: var(--font-display);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--forest);
+            color: var(--text);
             letter-spacing: -0.01em;
         }
-        .logo span { font-weight: 400; font-style: italic; color: var(--copper); }
+        .logo span { color: var(--primary); font-weight: 400; font-style: italic; }
 
-        .nav { display: flex; gap: 2.5rem; list-style: none; }
+        .nav { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
         .nav a {
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-size: 0.8rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--charcoal);
+            letter-spacing: 0.06em;
+            color: var(--text);
             position: relative;
             padding-bottom: 4px;
+            transition: color 0.2s;
         }
-        .nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 0; height: 1.5px;
-            background: var(--copper);
-            transition: width 0.3s ease;
-        }
-        .nav a:hover::after { width: 100%; }
+        .nav a:hover { color: var(--primary); }
 
         .mobile-toggle {
             display: none;
-            width: 44px; height: 44px;
+            width: 40px; height: 40px;
             align-items: center; justify-content: center;
             background: none; border: none;
-            font-size: 1.25rem; color: var(--forest);
+            font-size: 1.2rem; color: var(--text);
             cursor: pointer;
         }
-
-        /* Mobile Menu */
-        .mobile-nav {
-            position: fixed;
-            inset: 0;
-            background: var(--ivory);
-            z-index: 99;
-            padding: 6rem 2rem 2rem;
-            transform: translateX(100%);
-            transition: transform 0.4s ease;
-        }
-        .mobile-nav.open { transform: translateX(0); }
-        .mobile-nav ul { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
-        .mobile-nav a {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            color: var(--forest);
-        }
-        .mobile-nav .btn { margin-top: 2rem; width: 100%; justify-content: center; }
 
         /* Hero */
         .hero {
@@ -194,57 +157,57 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            padding-top: 80px;
+            padding-top: 76px;
         }
 
-        .hero-content { padding: var(--space-lg) 0; max-width: 540px; }
-        .hero-content h1 { margin-bottom: var(--space-md); }
-        .hero-content h1 em { font-style: italic; color: var(--copper); }
-        .hero-content p { font-size: 1.1rem; margin-bottom: var(--space-md); max-width: 440px; }
-        .hero-actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+        .hero-content { max-width: 520px; padding: 3rem 0; }
+        .hero-content h1 { margin-bottom: 1.5rem; }
+        .hero-content h1 em { font-style: italic; color: var(--primary); }
+        .hero-content p { font-size: 1.05rem; margin-bottom: 2rem; max-width: 420px; }
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
         .hero-visual {
             position: relative;
             height: 100%;
             min-height: 600px;
-            background: var(--ivory-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: var(--bg-warm);
+            overflow: hidden;
         }
         .hero-visual img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.9;
+            opacity: 0.85;
         }
 
         /* Menu */
         .menu-section { background: var(--white); }
-        .section-header { margin-bottom: var(--space-lg); max-width: 600px; }
-        .section-header h2 { margin-bottom: var(--space-xs); }
+        .section-header { margin-bottom: 3rem; max-width: 560px; }
+        .section-header h2 { margin-bottom: 0.5rem; }
 
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-md);
+            gap: 2rem;
         }
 
         .menu-card {
+            background: var(--bg);
             border: 1px solid var(--border);
-            background: var(--ivory);
+            border-radius: 6px;
+            overflow: hidden;
             transition: all 0.3s ease;
         }
         .menu-card:hover {
-            border-color: var(--copper);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(27, 58, 47, 0.08);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
         }
 
         .menu-card-img {
             width: 100%;
-            height: 260px;
-            background: var(--ivory-dark);
+            height: 220px;
+            background: var(--bg-warm);
             overflow: hidden;
             position: relative;
         }
@@ -252,140 +215,69 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
         .menu-card:hover .menu-card-img img { transform: scale(1.05); }
 
-        .menu-card-body { padding: var(--space-sm); }
-        .menu-card-body h3 { margin-bottom: 0.25rem; font-size: 1.35rem; }
-        .menu-card-body p { font-size: 0.9rem; margin-bottom: var(--space-sm); }
+        .menu-card-body { padding: 1.25rem; }
+        .menu-card-body h3 { margin-bottom: 0.3rem; font-size: 1.25rem; }
+        .menu-card-body p { font-size: 0.85rem; margin-bottom: 1rem; color: var(--text-light); }
+
         .menu-card-footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: var(--space-xs);
+            padding-top: 0.75rem;
             border-top: 1px solid var(--border);
         }
-        .menu-price { font-weight: 700; color: var(--forest); font-size: 1.1rem; }
-        .menu-price span { font-weight: 400; font-size: 0.85rem; color: var(--stone); }
-
-        /* Book / Custom Order */
-        .book-section { background: var(--forest); color: var(--ivory); }
-        .book-section h2 { color: var(--white); }
-        .book-section .label { color: var(--copper-light); }
-        .book-section p { color: rgba(250, 247, 242, 0.7); }
-
-        .book-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-lg);
-            align-items: start;
-        }
-
-        .book-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-        .form-group label {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: rgba(250, 247, 242, 0.8);
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 1rem;
-            border: 1px solid rgba(250, 247, 242, 0.2);
-            background: rgba(250, 247, 242, 0.05);
-            color: var(--white);
-            font-family: var(--font-body);
-            font-size: 1rem;
-            border-radius: 0;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--copper);
-        }
-        .form-group input::placeholder,
-        .form-group textarea::placeholder { color: rgba(250, 247, 242, 0.4); }
-
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-
-        .book-lookbook {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-        .lookbook-item {
-            aspect-ratio: 1;
-            background: rgba(250, 247, 242, 0.05);
-            border: 1px solid rgba(250, 247, 242, 0.1);
-            overflow: hidden;
-            position: relative;
-        }
-        .lookbook-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-        .lookbook-item:hover img { opacity: 1; }
-        .lookbook-item.tall { grid-row: span 2; }
+        .menu-price { font-weight: 700; color: var(--text); font-size: 1rem; }
+        .menu-price span { font-weight: 400; font-size: 0.8rem; color: var(--text-light); }
 
         /* About */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--space-lg);
+            gap: 4rem;
             align-items: center;
         }
         .about-img {
             width: 100%;
-            height: 520px;
-            background: var(--ivory-dark);
+            height: 480px;
+            background: var(--bg-warm);
+            border-radius: 6px;
             overflow: hidden;
         }
         .about-img img { width: 100%; height: 100%; object-fit: cover; }
-        .about-content h2 { margin-bottom: var(--space-sm); }
-        .about-content p { margin-bottom: var(--space-sm); font-size: 1.05rem; }
+        .about-content h2 { margin-bottom: 1rem; }
+        .about-content p { margin-bottom: 1rem; font-size: 1rem; }
 
         /* Visit */
         .visit-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--space-lg);
+            gap: 4rem;
+            align-items: start;
         }
-        .visit-info h3 { margin-bottom: var(--space-sm); font-size: 1.5rem; }
-        .visit-info p { margin-bottom: var(--space-xs); }
-        .visit-info a { color: var(--copper); font-weight: 500; }
-        .visit-info a:hover { text-decoration: underline; }
-
+        .visit-info h3 { margin-bottom: 0.5rem; font-size: 1.25rem; font-family: var(--font-body); font-weight: 700; }
+        .visit-info p { margin-bottom: 1.5rem; }
+        .visit-info a { color: var(--primary); font-weight: 600; }
         .visit-map {
             width: 100%;
-            height: 400px;
-            background: var(--ivory-dark);
+            height: 380px;
+            background: var(--bg-warm);
             border: 1px solid var(--border);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--stone);
+            color: var(--text-light);
         }
 
         /* Footer */
         .footer {
-            background: var(--forest);
-            color: var(--ivory);
-            padding: var(--space-md) 0;
-            border-top: 1px solid rgba(250, 247, 242, 0.1);
+            background: var(--text);
+            color: var(--bg);
+            padding: 2.5rem 0;
         }
         .footer-inner {
             display: flex;
@@ -394,7 +286,7 @@
         }
         .footer-logo {
             font-family: var(--font-display);
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--white);
         }
         .footer-links {
@@ -403,30 +295,283 @@
             list-style: none;
         }
         .footer-links a {
-            font-size: 0.85rem;
-            color: rgba(250, 247, 242, 0.7);
-            transition: color 0.3s;
+            font-size: 0.8rem;
+            color: rgba(253, 248, 243, 0.7);
+            transition: color 0.2s;
         }
-        .footer-links a:hover { color: var(--copper-light); }
+        .footer-links a:hover { color: var(--primary); }
 
-        /* Responsive */
+        /* ============================================
+           MODAL SYSTEM
+           ============================================ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(43, 45, 66, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--white);
+            width: 100%;
+            max-width: 520px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-lg { max-width: 640px; }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-header h3 {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            border: none;
+            border-radius: 50%;
+            color: var(--text);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .modal-close:hover { background: var(--bg-warm); }
+
+        .modal-body { padding: 1.5rem; }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .order-summary {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .summary-row.total {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        /* Payment Options */
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: var(--bg);
+        }
+
+        .payment-option:hover {
+            border-color: var(--primary);
+        }
+
+        .payment-option.selected {
+            border-color: var(--primary);
+            background: rgba(224, 122, 95, 0.04);
+        }
+
+        .payment-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .payment-option label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        .payment-option i {
+            font-size: 1.25rem;
+            color: var(--primary);
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Processing */
+        .processing {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Success */
+        .success-screen {
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .success-icon {
+            width: 72px;
+            height: 72px;
+            background: rgba(224, 122, 95, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .success-screen h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .success-screen p {
+            margin-bottom: 2rem;
+            max-width: 360px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .order-id {
+            display: inline-block;
+            background: var(--bg);
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        /* Mobile */
         @media (max-width: 900px) {
             .nav { display: none; }
             .mobile-toggle { display: flex; }
             .hero { grid-template-columns: 1fr; }
             .hero-visual { min-height: 400px; order: -1; }
             .menu-grid { grid-template-columns: repeat(2, 1fr); }
-            .book-grid,
-            .about-grid,
-            .visit-grid { grid-template-columns: 1fr; }
+            .about-grid, .visit-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
         }
 
         @media (max-width: 600px) {
             .menu-grid { grid-template-columns: 1fr; }
             .hero-actions { flex-direction: column; }
-            .hero-actions .btn { width: 100%; justify-content: center; }
-            .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+            .hero-actions .btn { width: 100%; }
+            .modal { max-height: 95vh; }
         }
     </style>
 </head>
@@ -440,41 +585,40 @@
                 <ul class="nav">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#menu">Menu</a></li>
-                    <li><a href="#book">Book Custom</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#visit">Visit</a></li>
+                    <li><a href="#menu" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.75rem;">Order Now</a></li>
                 </ul>
             </nav>
-            <a href="https://wa.me/919959491828" class="btn btn-accent" target="_blank">Order Now</a>
             <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Menu"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
     <!-- Mobile Nav -->
-    <div class="mobile-nav" id="mobileNav">
-        <ul>
-            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
-            <li><a href="#menu" onclick="toggleMenu()">Menu</a></li>
-            <li><a href="#book" onclick="toggleMenu()">Book Custom</a></li>
-            <li><a href="#about" onclick="toggleMenu()">About</a></li>
-            <li><a href="#visit" onclick="toggleMenu()">Visit</a></li>
+    <div class="mobile-nav" id="mobileNav" style="position: fixed; inset: 0; background: var(--bg); z-index: 99; padding: 6rem 2rem 2rem; transform: translateX(100%); transition: transform 0.4s ease;">
+        <button onclick="toggleMenu()" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; color: var(--text); cursor: pointer;"><i class="fas fa-times"></i></button>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem;">
+            <li><a href="#home" onclick="toggleMenu()" style="font-family: var(--font-display); font-size: 2rem; color: var(--text);">Home</a></li>
+            <li><a href="#menu" onclick="toggleMenu()" style="font-family: var(--font-display); font-size: 2rem; color: var(--text);">Menu</a></li>
+            <li><a href="#about" onclick="toggleMenu()" style="font-family: var(--font-display); font-size: 2rem; color: var(--text);">About</a></li>
+            <li><a href="#visit" onclick="toggleMenu()" style="font-family: var(--font-display); font-size: 2rem; color: var(--text);">Visit</a></li>
         </ul>
-        <a href="https://wa.me/919959491828" class="btn btn-accent" target="_blank">Order on WhatsApp</a>
+        <a href="#menu" onclick="toggleMenu()" class="btn btn-primary" style="margin-top: 2rem; width: 100%;">Order Now</a>
     </div>
 
     <!-- Hero -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <span class="label">Est. 2015 — Palwancha</span>
-            <h1>Crafted by Hand. <em>Baked with Care.</em></h1>
-            <p>Artisan cakes, traditional Indian sweets, and daily bakes from our kitchen in Gandhi Nagar, KTPS. No preservatives. No shortcuts.</p>
+            <span class="label">Palwancha, Telangana</span>
+            <h1>Baked Fresh. <em>Delivered Today.</em></h1>
+            <p>Custom cakes, traditional sweets, and daily bakes from our kitchen in Gandhi Nagar, KTPS. Order online and pay securely.</p>
             <div class="hero-actions">
-                <a href="#menu" class="btn btn-primary">View Menu</a>
-                <a href="#book" class="btn btn-outline">Book Custom Cake</a>
+                <a href="#menu" class="btn btn-primary">Browse Menu</a>
+                <a href="#visit" class="btn btn-outline">Find Our Store</a>
             </div>
         </div>
         <div class="hero-visual">
-            <img src="https://placehold.co/800x900/2D5A4A/FAF7F2?text=Hero+Cake+Photo" alt="Artisan cake display">
+            <img src="https://placehold.co/800x900/F7F0E8/2B2D42?text=Artisan+Cake+Display" alt="Artisan cake">
         </div>
     </section>
 
@@ -482,181 +626,87 @@
     <section class="section menu-section" id="menu">
         <div class="container">
             <div class="section-header">
-                <span class="label">The Collection</span>
-                <h2>Fresh from the Oven</h2>
-                <p>Everything is made to order using pure ingredients. Replace the placeholders below with your actual product photography.</p>
+                <span class="label">The Menu</span>
+                <h2>Order Online</h2>
+                <p>Click "Book" on any item to place an order. We accept UPI, cards, and cash on delivery.</p>
             </div>
             <div class="menu-grid">
                 <div class="menu-card">
                     <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/D4A574/1B3A2F?text=Black+Forest" alt="Black Forest Cake">
+                        <img src="https://placehold.co/600x400/E07A5F/FFFFFF?text=Black+Forest" alt="Black Forest">
                     </div>
                     <div class="menu-card-body">
-                        <h3>Black Forest</h3>
+                        <h3>Black Forest Cake</h3>
                         <p>Chocolate sponge, whipped cream, dark cherries.</p>
                         <div class="menu-card-footer">
                             <div class="menu-price">₹450 <span>/ 500g</span></div>
-                            <a href="https://wa.me/919959491828?text=Hi,+I+want+to+order+Black+Forest+Cake" class="btn btn-outline" style="padding:0.6rem 1.2rem;font-size:0.75rem;" target="_blank">Order</a>
+                            <button class="btn btn-dark" style="padding: 0.5rem 1rem; font-size: 0.75rem;" onclick="openBooking('Black Forest Cake', 450)">Book</button>
                         </div>
                     </div>
                 </div>
                 <div class="menu-card">
                     <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/E8D5C4/1B3A2F?text=Butterscotch" alt="Butterscotch Cake">
+                        <img src="https://placehold.co/600x400/D4A373/FFFFFF?text=Butterscotch" alt="Butterscotch">
                     </div>
                     <div class="menu-card-body">
-                        <h3>Butterscotch</h3>
+                        <h3>Butterscotch Delight</h3>
                         <p>Caramel crunch, toffee drizzle, silky cream.</p>
                         <div class="menu-card-footer">
                             <div class="menu-price">₹400 <span>/ 500g</span></div>
-                            <a href="https://wa.me/919959491828?text=Hi,+I+want+to+order+Butterscotch+Cake" class="btn btn-outline" style="padding:0.6rem 1.2rem;font-size:0.75rem;" target="_blank">Order</a>
+                            <button class="btn btn-dark" style="padding: 0.5rem 1rem; font-size: 0.75rem;" onclick="openBooking('Butterscotch Delight', 400)">Book</button>
                         </div>
                     </div>
                 </div>
                 <div class="menu-card">
                     <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/C9B8A7/1B3A2F?text=Pineapple" alt="Pineapple Cake">
+                        <img src="https://placehold.co/600x400/81B29A/FFFFFF?text=Pineapple" alt="Pineapple">
                     </div>
                     <div class="menu-card-body">
                         <h3>Pineapple Cream</h3>
                         <p>Light sponge, fresh pineapple, whipped cream.</p>
                         <div class="menu-card-footer">
                             <div class="menu-price">₹350 <span>/ 500g</span></div>
-                            <a href="https://wa.me/919959491828?text=Hi,+I+want+to+order+Pineapple+Cream+Cake" class="btn btn-outline" style="padding:0.6rem 1.2rem;font-size:0.75rem;" target="_blank">Order</a>
+                            <button class="btn btn-dark" style="padding: 0.5rem 1rem; font-size: 0.75rem;" onclick="openBooking('Pineapple Cream', 350)">Book</button>
                         </div>
                     </div>
                 </div>
                 <div class="menu-card">
                     <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/A89080/FAF7F2?text=Kaju+Katli" alt="Kaju Katli">
+                        <img src="https://placehold.co/600x400/C27BA0/FFFFFF?text=Red+Velvet" alt="Red Velvet">
+                    </div>
+                    <div class="menu-card-body">
+                        <h3>Red Velvet Cupcakes</h3>
+                        <p>Velvety sponge with cream cheese frosting. Pack of 6.</p>
+                        <div class="menu-card-footer">
+                            <div class="menu-price">₹250 <span>/ 6 pcs</span></div>
+                            <button class="btn btn-dark" style="padding: 0.5rem 1rem; font-size: 0.75rem;" onclick="openBooking('Red Velvet Cupcakes', 250)">Book</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-img">
+                        <img src="https://placehold.co/600x400/3D405B/FFFFFF?text=Kaju+Katli" alt="Kaju Katli">
                     </div>
                     <div class="menu-card-body">
                         <h3>Kaju Katli</h3>
                         <p>Premium cashew fudge with silver varq.</p>
                         <div class="menu-card-footer">
                             <div class="menu-price">₹280 <span>/ 250g</span></div>
-                            <a href="https://wa.me/919959491828?text=Hi,+I+want+to+order+Kaju+Katli" class="btn btn-outline" style="padding:0.6rem 1.2rem;font-size:0.75rem;" target="_blank">Order</a>
+                            <button class="btn btn-dark" style="padding: 0.5rem 1rem; font-size: 0.75rem;" onclick="openBooking('Kaju Katli', 280)">Book</button>
                         </div>
                     </div>
                 </div>
                 <div class="menu-card">
                     <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/8B7355/FAF7F2?text=Gulab+Jamun" alt="Gulab Jamun">
+                        <img src="https://placehold.co/600x400/E07A5F/FFFFFF?text=Gulab+Jamun" alt="Gulab Jamun">
                     </div>
                     <div class="menu-card-body">
                         <h3>Gulab Jamun</h3>
-                        <p>Khoya dumplings in cardamom sugar syrup.</p>
+                        <p>Khoya dumplings in cardamom sugar syrup. 12 pcs.</p>
                         <div class="menu-card-footer">
                             <div class="menu-price">₹180 <span>/ 12 pcs</span></div>
-                            <a href="https://wa.me/919959491828?text=Hi,+I+want+to+order+Gulab+Jamun" class="btn btn-outline" style="padding:0.6rem 1.2rem;font-size:0.75rem;" target="_blank">Order</a>
+                            <button class="btn btn-dark" style="padding: 0.5rem 1rem; font-size: 0.75rem;" onclick="openBooking('Gulab Jamun', 180)">Book</button>
                         </div>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-card-img">
-                        <img src="https://placehold.co/600x400/B8A090/1B3A2F?text=Fresh+Bread" alt="Fresh Bread">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>Fresh Milk Bread</h3>
-                        <p>Daily baked loaf. No preservatives.</p>
-                        <div class="menu-card-footer">
-                            <div class="menu-price">₹40 <span>/ loaf</span></div>
-                            <a href="https://wa.me/919959491828?text=Hi,+I+want+to+order+Fresh+Bread" class="btn btn-outline" style="padding:0.6rem 1.2rem;font-size:0.75rem;" target="_blank">Order</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Book Custom Cake -->
-    <section class="section book-section" id="book">
-        <div class="container book-grid">
-            <div>
-                <span class="label">Reservations</span>
-                <h2>Book Your Custom Cake</h2>
-                <p style="margin-bottom: var(--space-md);">Tell us what you need. We will confirm availability, price, and delivery details over WhatsApp within 30 minutes.</p>
-                
-                <form class="book-form" id="bookingForm" onsubmit="handleBook(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="Your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="099594 91828" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="occasion">Occasion</label>
-                            <select id="occasion" required>
-                                <option value="" disabled selected>Select occasion</option>
-                                <option value="Birthday">Birthday</option>
-                                <option value="Wedding">Wedding</option>
-                                <option value="Anniversary">Anniversary</option>
-                                <option value="Festival">Festival</option>
-                                <option value="Corporate">Corporate</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Delivery Date</label>
-                            <input type="date" id="date" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="size">Cake Size</label>
-                            <select id="size" required>
-                                <option value="" disabled selected>Select size</option>
-                                <option value="500g">500g</option>
-                                <option value="1kg">1kg</option>
-                                <option value="2kg">2kg</option>
-                                <option value="3kg+">3kg or more</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="flavor">Preferred Flavor</label>
-                            <select id="flavor" required>
-                                <option value="" disabled selected>Select flavor</option>
-                                <option value="Black Forest">Black Forest</option>
-                                <option value="Butterscotch">Butterscotch</option>
-                                <option value="Pineapple">Pineapple</option>
-                                <option value="Red Velvet">Red Velvet</option>
-                                <option value="Chocolate">Chocolate</option>
-                                <option value="Custom">Custom / Other</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Design Notes</label>
-                        <textarea id="message" rows="4" placeholder="Describe the design, theme, message on cake, or any special requests..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-accent" style="width: 100%; justify-content: center;">
-                        Send Booking Request
-                    </button>
-                </form>
-            </div>
-
-            <div>
-                <span class="label">Lookbook</span>
-                <h2 style="color: var(--white); margin-bottom: var(--space-sm);">Past Creations</h2>
-                <p style="color: rgba(250,247,242,0.6); margin-bottom: var(--space-md);">A selection of custom cakes we have crafted for our customers in Palwancha.</p>
-                <div class="book-lookbook">
-                    <div class="lookbook-item tall">
-                        <img src="https://placehold.co/400x600/2D5A4A/FAF7F2?text=Wedding+Tier" alt="Wedding cake">
-                    </div>
-                    <div class="lookbook-item">
-                        <img src="https://placehold.co/400x400/3E5A4A/FAF7F2?text=Birthday" alt="Birthday cake">
-                    </div>
-                    <div class="lookbook-item">
-                        <img src="https://placehold.co/400x400/4A6A5A/FAF7F2?text=Anniversary" alt="Anniversary cake">
                     </div>
                 </div>
             </div>
@@ -667,15 +717,14 @@
     <section class="section" id="about">
         <div class="container about-grid">
             <div class="about-img">
-                <img src="https://placehold.co/600x700/F0EBE3/1B3A2F?text=Kitchen+Photo" alt="Neha's kitchen">
+                <img src="https://placehold.co/600x700/F7F0E8/2B2D42?text=Our+Kitchen" alt="Kitchen">
             </div>
             <div class="about-content">
-                <span class="label">Our Story</span>
-                <h2>From Our Kitchen to Your Home</h2>
-                <p>We are located inside <strong>More Supermarket — Palvoncha</strong>, serving Gandhi Nagar, KTPS, and all of Palwancha since 2015.</p>
-                <p>Every morning, we bake in small batches. Real butter. Fresh cream. Premium dry fruits. No preservatives, no premixes, no shortcuts. Whether it is a last-minute loaf of bread or a three-tier wedding cake, we treat it with the same care.</p>
-                <p>Our sweets follow family recipes — the kind of Mysore Pak and Kaju Katli that taste like they came from a home kitchen, because they essentially did.</p>
-                <a href="#visit" class="btn btn-outline" style="margin-top: var(--space-sm);">Find Us</a>
+                <span class="label">About</span>
+                <h2>Made in Palwancha</h2>
+                <p>We are located inside <strong>More Supermarket — Palvoncha</strong>, serving Gandhi Nagar, KTPS, and surrounding areas since 2015.</p>
+                <p>Every cake is baked to order. Every sweet follows a family recipe. Real butter, fresh cream, and no preservatives.</p>
+                <a href="#visit" class="btn btn-outline">Visit Us</a>
             </div>
         </div>
     </section>
@@ -684,9 +733,9 @@
     <section class="section" id="visit">
         <div class="container visit-grid">
             <div class="visit-info">
-                <span class="label">Visit</span>
-                <h2>Come By or Call Ahead</h2>
-                <p>We are easy to find inside More Supermarket. If you are placing a large order, a quick call helps us prepare.</p>
+                <span class="label">Contact</span>
+                <h2>Visit or Call</h2>
+                <p>We are easy to find inside More Supermarket. For large orders, call ahead.</p>
                 
                 <h3>Address</h3>
                 <p>Road, Gandhi Nagar, KTPS<br>Palwancha, Telangana 507115<br><small>Inside More Supermarket — Palvoncha</small></p>
@@ -696,12 +745,9 @@
                 
                 <h3>Hours</h3>
                 <p>Monday — Sunday<br>8:00 AM to 10:00 PM</p>
-                
-                <h3>WhatsApp</h3>
-                <p><a href="https://wa.me/919959491828" target="_blank">+91 99594 91828</a> — fastest for orders</p>
             </div>
             <div class="visit-map">
-                <p>Google Maps Embed Area<br><small>Replace this div with your iframe</small></p>
+                <p>Google Maps Embed</p>
             </div>
         </div>
     </section>
@@ -712,41 +758,262 @@
             <div class="footer-logo">Neha's Cake Factory</div>
             <ul class="footer-links">
                 <li><a href="#menu">Menu</a></li>
-                <li><a href="#book">Book Custom</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#visit">Visit</a></li>
             </ul>
         </div>
     </footer>
 
+    <!-- ============================================
+         BOOKING MODAL
+         ============================================ -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h3>Book Your Order</h3>
+                <button class="modal-close" onclick="closeModal('bookingModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>Item</span>
+                        <span id="bookItemName">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Base Price</span>
+                        <span id="bookItemPrice">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Quantity</span>
+                        <span><input type="number" id="bookQty" value="1" min="1" max="10" onchange="updateSummary()" style="width: 60px; padding: 0.3rem; text-align: center; border: 1px solid var(--border); border-radius: 4px;"></span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="bookTotal">₹0</span>
+                    </div>
+                </div>
+
+                <form id="bookingForm" onsubmit="goToPayment(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="custName">Full Name</label>
+                            <input type="text" id="custName" required placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="custPhone">Phone</label>
+                            <input type="tel" id="custPhone" required placeholder="099594 91828">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="custAddress">Delivery Address</label>
+                        <textarea id="custAddress" rows="3" required placeholder="House number, street, area..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="deliveryDate">Delivery Date</label>
+                            <input type="date" id="deliveryDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deliveryTime">Preferred Time</label>
+                            <select id="deliveryTime" required>
+                                <option value="">Select time</option>
+                                <option value="10 AM - 12 PM">10 AM - 12 PM</option>
+                                <option value="12 PM - 2 PM">12 PM - 2 PM</option>
+                                <option value="2 PM - 4 PM">2 PM - 4 PM</option>
+                                <option value="4 PM - 6 PM">4 PM - 6 PM</option>
+                                <option value="6 PM - 8 PM">6 PM - 8 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes (Optional)</label>
+                        <textarea id="notes" rows="2" placeholder="Message on cake, eggless, etc."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Proceed to Payment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         PAYMENT MODAL
+         ============================================ -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Payment</h3>
+                <button class="modal-close" onclick="closeModal('paymentModal'); openModal('bookingModal')"><i class="fas fa-arrow-left"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="order-summary" style="margin-bottom: 1.5rem;">
+                    <div class="summary-row total">
+                        <span>Amount to Pay</span>
+                        <span id="payAmount">₹0</span>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); margin-bottom: 1rem;">Select Payment Method</p>
+                
+                <div class="payment-options">
+                    <label class="payment-option selected" onclick="selectPayment(this, 'upi')">
+                        <input type="radio" name="payment" value="upi" checked>
+                        <i class="fas fa-qrcode"></i>
+                        <span>UPI / Google Pay / PhonePe</span>
+                    </label>
+                    <label class="payment-option" onclick="selectPayment(this, 'card')">
+                        <input type="radio" name="payment" value="card">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Credit / Debit Card</span>
+                    </label>
+                    <label class="payment-option" onclick="selectPayment(this, 'cod')">
+                        <input type="radio" name="payment" value="cod">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Cash on Delivery</span>
+                    </label>
+                </div>
+
+                <button class="btn btn-primary btn-full" onclick="processPayment()">
+                    <span id="payBtnText">Pay Now</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         PROCESSING MODAL
+         ============================================ -->
+    <div class="modal-overlay" id="processingModal">
+        <div class="modal" style="max-width: 360px;">
+            <div class="processing">
+                <div class="spinner"></div>
+                <h3 style="font-family: var(--font-body); font-size: 1rem; margin-bottom: 0.5rem;">Processing Payment</h3>
+                <p style="font-size: 0.85rem;">Please do not close this window...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SUCCESS MODAL
+         ============================================ -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal" style="max-width: 440px;">
+            <div class="success-screen">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h2>Order Placed</h2>
+                <p>Thank you for your order. We have received your request and will confirm it shortly via WhatsApp.</p>
+                <div class="order-id" id="orderIdDisplay">ORDER #NCF-7829</div>
+                <button class="btn btn-primary btn-full" onclick="closeAllModals()">Done</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function toggleMenu() {
-            document.getElementById('mobileNav').classList.toggle('open');
-            document.body.style.overflow = document.getElementById('mobileNav').classList.contains('open') ? 'hidden' : '';
+        let currentItem = { name: '', price: 0 };
+        let orderState = {};
+
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
-        function handleBook(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const occasion = document.getElementById('occasion').value;
-            const date = document.getElementById('date').value;
-            const size = document.getElementById('size').value;
-            const flavor = document.getElementById('flavor').value;
-            const message = document.getElementById('message').value;
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-            const text = `Hi Neha's Cake Factory, I want to book a custom cake:%0A%0AName: ${name}%0APhone: ${phone}%0AOccasion: ${occasion}%0ADelivery Date: ${date}%0ASize: ${size}%0AFlavor: ${flavor}%0ANotes: ${message || 'None'}`;
+        function closeAllModals() {
+            ['bookingModal', 'paymentModal', 'processingModal', 'successModal'].forEach(id => {
+                document.getElementById(id).classList.remove('active');
+            });
+            document.body.style.overflow = '';
+            // Reset form
+            document.getElementById('bookingForm').reset();
+            document.getElementById('bookQty').value = 1;
+        }
+
+        function openBooking(name, price) {
+            currentItem = { name, price };
+            document.getElementById('bookItemName').textContent = name;
+            document.getElementById('bookItemPrice').textContent = '₹' + price;
+            updateSummary();
+            openModal('bookingModal');
+        }
+
+        function updateSummary() {
+            const qty = parseInt(document.getElementById('bookQty').value) || 1;
+            const total = currentItem.price * qty;
+            document.getElementById('bookTotal').textContent = '₹' + total;
+            orderState.total = total;
+            orderState.qty = qty;
+        }
+
+        function goToPayment(e) {
+            e.preventDefault();
+            orderState.name = document.getElementById('custName').value;
+            orderState.phone = document.getElementById('custPhone').value;
+            orderState.address = document.getElementById('custAddress').value;
+            orderState.date = document.getElementById('deliveryDate').value;
+            orderState.time = document.getElementById('deliveryTime').value;
+            orderState.notes = document.getElementById('notes').value;
+            orderState.item = currentItem.name;
+
+            closeModal('bookingModal');
+            document.getElementById('payAmount').textContent = '₹' + orderState.total;
             
+            const method = document.querySelector('input[name="payment"]:checked').value;
+            updatePayButton(method);
+            
+            openModal('paymentModal');
+        }
+
+        function selectPayment(el, method) {
+            document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+            updatePayButton(method);
+        }
+
+        function updatePayButton(method) {
+            const btnText = document.getElementById('payBtnText');
+            if (method === 'cod') {
+                btnText.textContent = 'Place Order (COD)';
+            } else {
+                btnText.textContent = 'Pay ₹' + orderState.total;
+            }
+        }
+
+        function processPayment() {
+            const method = document.querySelector('input[name="payment"]:checked').value;
+            closeModal('paymentModal');
+            openModal('processingModal');
+
+            // Simulate processing time
+            setTimeout(() => {
+                closeModal('processingModal');
+                const orderId = 'NCF-' + Math.floor(1000 + Math.random() * 9000);
+                document.getElementById('orderIdDisplay').textContent = 'ORDER #' + orderId;
+                openModal('successModal');
+
+                // Also send data to WhatsApp for business records
+                sendWhatsAppConfirmation(method, orderId);
+            }, 2000);
+        }
+
+        function sendWhatsAppConfirmation(method, orderId) {
+            const text = `New Order Received!%0A%0AOrder ID: ${orderId}%0AItem: ${orderState.item}%0AQty: ${orderState.qty}%0ATotal: ₹${orderState.total}%0A%0ACustomer: ${orderState.name}%0APhone: ${orderState.phone}%0AAddress: ${orderState.address}%0ADate: ${orderState.date}, ${orderState.time}%0ANotes: ${orderState.notes || 'None'}%0APayment: ${method.toUpperCase()}`;
+            
+            // Open WhatsApp with order details in background
             window.open(`https://wa.me/919959491828?text=${text}`, '_blank');
         }
 
-        // Close mobile menu on resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 900) {
-                document.getElementById('mobileNav').classList.remove('open');
-                document.body.style.overflow = '';
-            }
-        });
+        function toggleMenu() {
+            const nav = document.getElementById('mobileNav');
+            nav.style.transform = nav.style.transform === 'translateX(0%)' ? 'translateX(100%)' : 'translateX(0%)';
+        }
+
+        // Set minimum date to today
+        document.getElementById('deliveryDate').min = new Date().toISOString().split('T')[0];
     </script>
 </body>
 </html>
